@@ -3,7 +3,7 @@ import requests
 
 app = FastAPI()
 
-LOCAL_API = "http://127.0.0.1:8000/get_data/"
+LOCAL_API = "https://lanell-dulotic-catarrhally.ngrok-free.dev/get_data/"
 
 
 @app.get("/")
@@ -19,4 +19,5 @@ def get_data(timeframe: str):
             return response.json()
         return {"error": f"Could not fetch data from local server ({response.status_code})"}
     except Exception as e:
+
         return {"error": str(e)}
